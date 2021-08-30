@@ -30,8 +30,32 @@ function quebrarLampada() {
     botoesLigaDesliga(true, true)
 }
 
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function piscarLampada() {
+    
+    let i = 0
+    while(i < 75){
+        
+        await sleep(1000)
+        
+        if((i % 2) == 0)
+            ligarLampada()
+        else
+            desligarLampada()      
+        
+        i++
+    }
+    
+}
+
 document.getElementById("ligar").addEventListener("click", ligarLampada)
 document.getElementById("desligar").addEventListener("click", desligarLampada)
+document.getElementById("piscar").addEventListener("click", piscarLampada)
 
 lampada.addEventListener("mouseover", ligarLampada)
 lampada.addEventListener("mouseout", desligarLampada)
