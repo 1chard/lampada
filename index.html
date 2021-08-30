@@ -4,6 +4,7 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Lâmpada</title>
+    <script src="lampada.js" defer></script>
 </head>
 
 <body>
@@ -11,10 +12,11 @@
         <h1>Lâmpada</h1>
     </header>
     <main>
-        <img src="img/desligada.jpg">
+        <img id="lampada" src="img/desligada.jpg">
         <div>
-            <input type="button" value="Ligar">
-            <input type="button" value="Desligar">
+            <input type="button" id="ligar" value="Ligar">
+            <input type="button" id="desligar" value="Desligar" disabled>
+            <input type="button" id="piscar" value="Piscar">
         </div>
     </main>
     <footer>

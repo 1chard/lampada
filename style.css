@@ -10,12 +10,10 @@ body{
     display: flex;
     flex-flow: column;
     align-items: center;
-    background: beige;
 }
 
 header{
     flex: 0 1 auto;
-
 }
 
 main{
