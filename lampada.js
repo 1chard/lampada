@@ -1,6 +1,8 @@
 "use strict"
 
+
 const lampada = document.getElementById("lampada")
+var statusLampada = false
 
 function lampadaInteira() {
     return !lampada.src.includes("quebrada")
@@ -15,6 +17,7 @@ function ligarLampada() {
     if (lampadaInteira()) {
         lampada.src = "img/ligada.jpg"
         botoesLigaDesliga(true, false)
+        statusLampada = true
     }
 }
 
@@ -22,6 +25,7 @@ function desligarLampada() {
     if (lampadaInteira()) {
         lampada.src = "img/desligada.jpg"
         botoesLigaDesliga(false, true)
+        statusLampada = false
     }
 }
 
@@ -32,25 +36,16 @@ function quebrarLampada() {
 
 
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+function piscarLampada() {
 
-async function piscarLampada() {
-    
-    let i = 0
-    while(i < 75){
-        
-        await sleep(1000)
-        
-        if((i % 2) == 0)
-            ligarLampada()
+
+    setInterval(() => {
+        if (statusLampada)
+            desligarLampada()
         else
-            desligarLampada()      
-        
-        i++
-    }
-    
+            ligarLampada()
+    }, 300)
+
 }
 
 document.getElementById("ligar").addEventListener("click", ligarLampada)
